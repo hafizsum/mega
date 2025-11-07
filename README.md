@@ -125,6 +125,10 @@ aws configure
                       --version=1.30 \
                       --without-nodegroup
   ```
+  - <b> Check clusters
+    ```bash
+      eksctl get clusters -o json
+    ```
   - <b>Go to AWS CloudFormation, you should see ***eksctl-mega-cluster*** created (might take 15 to 20 minutes)</b>
   - <b>Associate IAM OIDC Provider (Master machine)</b>
   ```bash
