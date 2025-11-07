@@ -159,7 +159,7 @@ aws configure
   Also, go to AWS EC2, you should see to machines got created
 ```
 
-- <bInstall and configure SonarQube (Master machine)</b>
+- Install and configure SonarQube (Master machine)
 ```bash
     Pull the latest SonarQube Community Edition
     docker pull sonarqube:community
@@ -179,13 +179,26 @@ aws configure
     Got to the link: <ec2-machine-ip>:9000/ and setup SonarQube account
 ```
 #
-- <b id="Trivy">Install Trivy (Jenkins Master)</b>
+- Install Trivy (On Master Machine)
 ```bash
-sudo apt-get install wget apt-transport-https gnupg lsb-release -y
-wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
-echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
-sudo apt-get update -y
-sudo apt-get install trivy -y
+> Update dependencies
+sudo apt update -y && sudo apt install -y wget curl apt-transport-https gnupg lsb-release
+
+> Add the Trivy signing key (secure method)
+curl -fsSL https://aquasecurity.github.io/trivy-repo/deb/public.key | \
+  sudo gpg --dearmor -o /usr/share/keyrings/trivy-archive-keyring.gpg
+
+> Add the Trivy repository (clean, non-duplicating)
+echo "deb [signed-by=/usr/share/keyrings/trivy-archive-keyring.gpg] \
+  https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | \
+  sudo tee /etc/apt/sources.list.d/trivy.list > /dev/null
+
+> Install the latest Trivy
+sudo apt update -y
+sudo apt install -y trivy
+
+> Verify version
+trivy --version
 ```
 
 #
