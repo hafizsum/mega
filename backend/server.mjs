@@ -1,11 +1,12 @@
-require('dotenv').config();
+import 'dotenv/config';
 
-const cors = require('cors');
-const express = require('express');
-const router = require('./routes/router');
-const productRouter = require('./routes/productRoutes');
-const connectDatabase = require('./config/db');
-import { PORT } from './config/utils.js';
+
+import cors from 'cors'; 
+import express from 'express';
+import router from './routes/router.mjs'; 
+import productRouter from './routes/productRoutes.mjs'; 
+import connectDatabase from './config/db.mjs';
+import { PORT } from './config/utils.mjs';
 
 const port = PORT || 5000;
 
