@@ -181,8 +181,8 @@ aws configure
 ```
 
 - Install and configure SonarQube (Master machine)
+- <i>Pull the latest SonarQube Community Edition</i>
 ```bash
-    Pull the latest SonarQube Community Edition
     docker pull sonarqube:community
 
     Run it:
