@@ -224,7 +224,7 @@ sudo apt install -y trivy
 trivy --version
 ```
 
-
+#
 ## Add email for notification
 <p>
   Follow this 
@@ -245,7 +245,7 @@ Jenlkins > Manage > Tools > Dependency-Check installations
 Hit: Add Dependency-Check
 Input: Name = OWASP > Check Mark: Install automatically > + Add installer > Select: Install from github.com > Save
 ```
-## Store SonarQube token with Jenkins
+## Store SonarQube token in Jenkins
 ```bash
 Go to <machine_ip>:9000
 Create SonarQube Token:
@@ -260,21 +260,20 @@ Create SonarQube Token:
   Name: Sonar > Server URL: <Machine_IP>:9000 > Server authentication token: Select sonar-key from dropdown
 ```
 
-## Add GitHub PAT Key to Jenkins
-```bash
-  - Create a GitHub PAT Key
-  - Add the key to Jenkins > Credentials > Global Credentials > Kind: Username with password
-```
-
 ## Create SonarQube Webhook for Jenkins
 ```bash
   SonarQube > Administration > Configuration > Webhooks
   URL to use (Jenkins url): <ec2-machine-ip>:8080/sonarqube-webhook
 ```
 
+## Add GitHub PAT Key to Jenkins
+```bash
+  - Create a GitHub PAT Key
+  - Add the key to Jenkins > Credentials > Global Credentials > Kind: Username with password
+```
+
 
 ## Install ArgoCD on Master Machine
-#
 - <b>Install and Configure ArgoCD (Master Machine)</b>
   - <b>Create argocd namespace</b>
   ```bash
