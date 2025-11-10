@@ -87,7 +87,7 @@ sudo apt update -y
   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 - <b>install jenkins suggested plugins </b>.
-## Create EKS Cluster on AWS (Master machine)
+## Configure AWSCli (Master machine)
   - IAM user with **access keys and secret access keys**
   - AWSCLI should be configured
   - Download AWSCLI:
@@ -108,8 +108,8 @@ aws configure
     AWS IAM > roles > Create role > AWS Service > Use case (ec2) > Next > AdministratorAccess> Role name (mega-ec2-role) > Create Role
   - Add Role to EC2 Master machine:
     Master machine > Actions > Security > Modify IAM Role > Select mega-ec2-role > Update IAM Role
-    
-## Install **kubectl** and **eksctl** (Master machine)
+## Create EKS Cluster on AWS (Master machine)
+### Install **kubectl** and **eksctl** (Master machine)
   - Install **kubectl** 
   ```bash
   curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
